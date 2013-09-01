@@ -5,8 +5,8 @@
     <link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <script src="js/angular.min.js"></script>
-	<script src="js/jquery-1.9.1.js"></script>
-	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/players.js"></script>
     <script src="js/app.js"></script>
     <title>BateTime</title>
@@ -18,7 +18,8 @@
                 
         <div id="main-screen" ng-show="!selecting">
         
-            <div>Você selecionou {{getSelectedCount()}} de {{players.length}} jogadores, que serão divididos em {{getTeamCount()}} time(s):</div>
+            <div>Você selecionou {{getSelectedCount()}} de {{players.length}} jogadores, 
+            que serão divididos em {{getTeamCount()}} time(s):</div>
             
             <pre><strong>Jogadores selecionados:</strong> {{getSelectedPlayers() | json}}</pre>
 
@@ -34,7 +35,8 @@
             </p>
         
             <label ng-repeat="player in players | orderBy:['outsider','name']">
-                <input class="check-player" type="checkbox" id="chk{{player.id}}" value="{{player.id}}" ng-model="player.checked" >
+                <input class="check-player" type="checkbox" 
+                    id="chk{{player.id}}" value="{{player.id}}" ng-model="player.checked" >
                 <label for="chk{{player.id}}">{{player.name}} ({{player.level}})</label><br>
             </label>
             
