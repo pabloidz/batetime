@@ -111,15 +111,29 @@ function MyCtrl($scope, $filter) {
         var team = -1;
         
         for (var i = 0; i < players.length; i++) {
-            team++;
-        
-            if (team > teamCount) {
-                team = 0;
-            }
             
-            if (team === waitingTeam && !players[i].canWait) {
-                team = 0;
-            }          
+            var teamFound = false
+            do {
+                team++;
+                
+                if (team >= teamCount) {
+                    team = 0;
+                }
+                
+                if ($scope.teams[team].players.length < $scope.teams[team].max) {
+                    if (team === waitingTeam) {
+                        if (players[i].canWait) {
+                            teamFound = true;
+                        }
+                    }
+                    else {
+                        teamFound = true;
+                    }
+                }
+                
+                // tem que sair do while em caso de problema!
+            }
+            while (!teamFound);
 
             $scope.teams[team].players.push(players[i]);
         };
