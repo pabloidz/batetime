@@ -112,9 +112,12 @@ function MyCtrl($scope, $filter) {
         
         for (var i = 0; i < players.length; i++) {
             
-            var teamFound = false
+            var teamFound = false,
+                retries = -1;
+                
             do {
                 team++;
+                retries++;
                 
                 if (team >= teamCount) {
                     team = 0;
@@ -129,9 +132,13 @@ function MyCtrl($scope, $filter) {
                     else {
                         teamFound = true;
                     }
+                    
+                    // para garantir a saída do laço
+                    if (retries >= teamCount) {
+                        teamFound = true;
+                    }
                 }
                 
-                // tem que sair do while em caso de problema!
             }
             while (!teamFound);
 

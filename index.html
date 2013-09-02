@@ -22,7 +22,7 @@
             
             <label ng-repeat="team in teams">
                 <strong>Time {{team.name}}</strong><br>
-                <ul ng-repeat="player in team.players | orderBy:-level">
+                <ul ng-repeat="player in team.players | orderBy:'level'">
                     <li>{{player.name}} ({{player.level}})</li>
                 </ul>
             </label>
