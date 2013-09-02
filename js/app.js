@@ -30,6 +30,7 @@ function MyCtrl($scope, $filter) {
             }
         }
         player.priority = player.level + getPriority(player.level) + Math.random()
+        player.canWait = (player.level === 3 || player.level === 4)
         return player
     }
     
@@ -80,7 +81,7 @@ function MyCtrl($scope, $filter) {
         
         return message + '.';
     }
-    
+        
     $scope.distribute = function() {
         var classifiedPlayers = getSelectedPlayers().map(mapPriority),
             players = $filter('orderBy')(classifiedPlayers, '-priority'),
@@ -102,29 +103,24 @@ function MyCtrl($scope, $filter) {
             });
         };
         
+        var waitingTeam = -1;
+        if (waitingCount > 0) {
+            waitingTeam = teamCount - 1;
+        }
+        
         var team = -1;
-        var waiting = false;
+        
         for (var i = 0; i < players.length; i++) {
-
             team++;
         
-            if (players[i].priority < 10.0 && waitingCount > 0) {
-                waiting = true;
+            if (team > teamCount) {
+                team = 0;
             }
+            
+            if (team === waitingTeam && !players[i].canWait) {
+                team = 0;
+            }          
 
-            if (team >= (teamCount - (waiting ? 0 : 1))) {
-                team = 0;
-            }
-                    
-            if ($scope.teams[team].players.length >= $scope.teams[team].max) {
-                team++
-            }
-            
-            // duplicação terrível, eu sei - vou resolver depois
-            if (team >= (teamCount - (waiting ? 0 : 1))) {
-                team = 0;
-            }
-            
             $scope.teams[team].players.push(players[i]);
         };
     }

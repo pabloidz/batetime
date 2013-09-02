@@ -20,11 +20,10 @@
         
             <p>{{getSelectionMessage()}}</p>
             
-            <pre>{{teams | json}}</pre>
-            
             <label ng-repeat="team in teams">
                 <strong>Time {{team.name}}</strong><br>
-                <ul>
+                <ul ng-repeat="player in team.players | orderBy:-level">
+                    <li>{{player.name}} ({{player.level}})</li>
                 </ul>
             </label>
 
