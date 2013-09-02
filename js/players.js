@@ -4,12 +4,12 @@ Player = {
         var players = []
         
         var levelDescription = {
-            6: 'GOLEIRO BOM',
-            5: 'GOLEIRO REGULAR',
-            4: 'MAIS HABILIDOSO', 
-            3: 'HABILIDOSO',
-            2: 'BOM',
-            1: 'APRENDENDO'
+            6: 'goleiro bom',
+            5: 'goleiro regular',
+            4: 'mais habilidoso', 
+            3: 'habilidoso',
+            2: 'bom',
+            1: 'aprendendo'
         }
             
         var add = function(name, level, outsider) {
@@ -31,8 +31,8 @@ Player = {
         add('Victor - amigo JJ', 6, true)
         add('Tiago Vignoli', 5)
         add('Romano', 5)
-        add('Iuri no gol', 5)
-        add('Iuri na linha', 3)
+        add('Iuri - gol', 5)
+        add('Iuri - linha', 3)
         add('Eduardo', 4)
         add('Rômulo', 4)
         add('Icaro', 4)

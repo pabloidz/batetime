@@ -18,26 +18,32 @@
                 
         <div id="main-screen" ng-show="!selecting">
         
-            <div>Você selecionou {{getSelectedCount()}} de {{players.length}} jogadores, 
-            que serão divididos em {{getTeamCount()}} time(s):</div>
+            <p>{{getSelectionMessage()}}</p>
             
-            <pre><strong>Jogadores selecionados:</strong> {{getSelectedPlayers() | json}}</pre>
+            <pre>{{teams | json}}</pre>
+            
+            <label ng-repeat="team in teams">
+                <strong>Time {{team.name}}</strong><br>
+                <ul>
+                </ul>
+            </label>
 
-            <a href="javascript:;" ng-click="selectPlayers()">Selecionar jogadores</a>
+            <a href="javascript:;" ng-click="selectPlayers()">Selecionar jogadores</a><br>
+            <a href="javascript:;" ng-click="distribute()">Distribuir novamente</a>
         
         </div>
 
         <div id="select-screen" ng-show="selecting">
         
             <p>
-                <input type="checkbox" id="chkGoalkeeper" ng-model="goalkeeper" >
+                <input type="checkbox" id="chkGoalkeeper" ng-model="goalkeeper">
                 <label for="chkGoalkeeper">Tem goleiro?</label>
             </p>
         
             <label ng-repeat="player in players | orderBy:['outsider','name']">
                 <input class="check-player" type="checkbox" 
-                    id="chk{{player.id}}" value="{{player.id}}" ng-model="player.checked" >
-                <label for="chk{{player.id}}">{{player.name}} ({{player.level}})</label><br>
+                    id="chk{{player.id}}" value="{{player.id}}" ng-model="player.checked">
+                <label for="chk{{player.id}}">{{player.name}} ({{player.level}})</label><br><br>
             </label>
             
             <p>
