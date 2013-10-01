@@ -1,4 +1,4 @@
-Player = {
+ï»¿Player = {
     getPlayers: function() {
 
         var players = []
@@ -34,11 +34,11 @@ Player = {
         add('Iuri - gol', 5)
         add('Iuri - linha', 3)
         add('Eduardo', 4)
-        add('Rômulo', 4)
+        add('RÃ´mulo', 4)
         add('Icaro', 4)
         add('Rogerson', 4)
         add('Ramon - amigo Brauner', 4, true)
-        add('Fernando Paraíba - amigo Icaro', 4, true)
+        add('Fernando ParaÃ­ba - amigo Icaro', 4, true)
         add('Fabiano - amigo Icaro', 4, true)
         add('Pedro Paulo - amigo Rogerson', 4, true)
         add('Thiago Mello', 3)
@@ -55,9 +55,9 @@ Player = {
         add('Igor - amigo Evandro', 3, true)
         add('Italo', 2)
         add('Brian', 2)
-        add('Flávio Almeida', 1)
+        add('FlÃ¡vio Almeida', 1)
         add('Bernardo', 1, true)
-        add('Sérgio', 1)
+        add('SÃ©rgio', 1)
         add('Jogador 1A', 1, true)
         add('Jogador 1B', 1, true)
         add('Jogador 2A', 2, true)

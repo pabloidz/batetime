@@ -1,10 +1,10 @@
 batetime
 ========
 
-Para facilitar a distribui√ß√£o dos jogadores nas peladas da Nova Tend√™ncia, e para praticar o sensacional AngularJS, criamos esta app simples, que poder√° ser acessada na hora do jogo em qualquer celular.
+Para facilitar a distribuiÁ„o dos jogadores nas peladas da Nova TendÍncia, e para praticar o sensacional AngularJS, criamos esta app simples, que poder· ser acessada na hora do jogo em qualquer celular.
 
-Pr√≥ximos passos:
+PrÛximos passos:
 
-- Manter os jogadores marcados entre diferentes sess√µes
-- Permitir cria√ß√£o/edi√ß√£o/exclus√£o de jogadores
-- Melhorar visual (usei a JQuery UI s√≥ pra quebrar o galho)
+- Manter os jogadores marcados entre diferentes sessıes
+- Permitir criaÁ„o/ediÁ„o/exclus„o de jogadores
+- Melhorar visual (usei a JQuery UI sÛ pra quebrar o galho)

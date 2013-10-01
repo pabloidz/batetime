@@ -1,4 +1,4 @@
-$(function () {
+ï»¿$(function () {
     $('.check-player').button();
 });
 
@@ -61,17 +61,17 @@ function MyCtrl($scope, $filter) {
             message = "";
         
         if (selectedCount === 0) {
-            message = total + " jogadores estão disponíveis para seleção";
+            message = total + " jogadores estÃ£o disponÃ­veis para seleÃ§Ã£o";
         }
         else {            
-            message = "Você selecionou " + selectedCount + " de " + total + " jogadores, ";
+            message = "VocÃª selecionou " + selectedCount + " de " + total + " jogadores, ";
             
             var teamCount = getTeamCount()
             if (teamCount === 0) {
-                message += "o que não dá um time ainda"
+                message += "o que nÃ£o dÃ¡ um time ainda"
             }
             else {
-                message += "que serão divididos em " + teamCount + " time" + (teamCount > 1 ? "s" : "");
+                message += "que serÃ£o divididos em " + teamCount + " time" + (teamCount > 1 ? "s" : "");
                 if (getWaitingCount() > 0) {
                     message += ", deixando " + getWaitingCount() + " de fora";
                 }
@@ -108,7 +108,8 @@ function MyCtrl($scope, $filter) {
             waitingTeam = teamCount - 1;
         }
         
-        var team = -1;
+        var team = -1,
+            prioritizing = true;
         
         for (var i = 0; i < players.length; i++) {
             
@@ -118,6 +119,12 @@ function MyCtrl($scope, $filter) {
             do {
                 team++;
                 retries++;
+                
+                // garante que apÃ³s distribuir os jogadores com nÃ­veis baixos, os jogadores com nÃ­veis mais altos irÃ£o para os times deles 
+                if (prioritizing && (players[i].priority < 10.0)) {
+                    prioritizing = false;
+                    team = 0;
+                }
                 
                 if (team >= teamCount) {
                     team = 0;
@@ -133,7 +140,7 @@ function MyCtrl($scope, $filter) {
                         teamFound = true;
                     }
                     
-                    // para garantir a saída do laço
+                    // para garantir a saÃ­da do laÃ§o
                     if (retries >= teamCount) {
                         teamFound = true;
                     }
@@ -141,7 +148,7 @@ function MyCtrl($scope, $filter) {
                 
             }
             while (!teamFound);
-
+            
             $scope.teams[team].players.push(players[i]);
         };
     }
