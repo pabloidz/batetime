@@ -81,6 +81,10 @@ function MyCtrl($scope, $filter) {
         
         return message + '.';
     }
+    
+    $scope.toggleActive = function(player){
+		player.checked = !player.checked;
+	};
         
     $scope.distribute = function() {
         var classifiedPlayers = getSelectedPlayers().map(mapPriority),

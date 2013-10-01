@@ -2,27 +2,24 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <script src="js/angular.min.js"></script>
-    <script src="js/jquery-1.9.1.js"></script>
-    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/players.js"></script>
     <script src="js/app.js"></script>
     <title>BateTime</title>
     <meta charset="utf-8">
 </head>
 <body>
-    <div ng-app ng-controller="MyCtrl" class="ui-widget">
+    <div ng-app ng-controller="MyCtrl">
     
         <h1>BateTime</h1>
                 
-        <div id="main-screen" ng-show="!selecting">
+        <div id="main-screen" class="screen" ng-show="!selecting">
         
             <p>{{getSelectionMessage()}}</p>
             
             <label ng-repeat="team in teams">
-                <strong>Time {{team.name}}</strong><br>
+                <h2>Time {{team.name}}</h2><br>
                 <ul ng-repeat="player in team.players | orderBy:'level'">
                     <li>{{player.name}} ({{player.level}})</li>
                 </ul>
@@ -33,18 +30,18 @@
         
         </div>
 
-        <div id="select-screen" ng-show="selecting">
+        <div id="select-screen" class="screen" ng-show="selecting">
         
             <p>
                 <input type="checkbox" id="chkGoalkeeper" ng-model="goalkeeper">
                 <label for="chkGoalkeeper">Tem goleiro?</label>
             </p>
-        
-            <label ng-repeat="player in players | orderBy:['outsider','name']">
-                <input class="check-player" type="checkbox" 
-                    id="chk{{player.id}}" value="{{player.id}}" ng-model="player.checked">
-                <label for="chk{{player.id}}">{{player.name}} ({{player.level}})</label><br><br>
-            </label>
+            
+            <ul>
+                <li ng-repeat="player in players | orderBy:['outsider','name']" ng-click="toggleActive(player)" ng-class="{active:player.checked}">
+                    {{player.name}} <span>{{player.level}}</span>
+                </li>
+            </ul>
             
             <p>
                 <a href="#" ng-click="endSelection()">Encerrar seleção</a>
