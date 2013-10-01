@@ -1,8 +1,4 @@
-﻿$(function () {
-    $('.check-player').button();
-});
-
-function MyCtrl($scope, $filter) {
+﻿function MyCtrl($scope, $filter) {
     
     $scope.selecting = false;
     $scope.goalkeeper = true;

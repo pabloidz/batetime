@@ -16,7 +16,7 @@
                 
         <div id="main-screen" class="screen" ng-show="!selecting">
         
-            <p>{{getSelectionMessage()}}</p>
+            <header>{{getSelectionMessage()}}</header>
             
             <label ng-repeat="team in teams">
                 <h2>Time {{team.name}}</h2><br>
@@ -25,17 +25,19 @@
                 </ul>
             </label>
 
-            <a href="#" ng-click="selectPlayers()">Selecionar jogadores</a><br>
-            <a href="#" ng-click="distribute()">Distribuir novamente</a>
+            <footer>
+                <a href="#" ng-click="selectPlayers()">Selecionar jogadores</a><br>
+                <a href="#" ng-click="distribute()">Distribuir novamente</a>
+            </footer>
         
         </div>
 
         <div id="select-screen" class="screen" ng-show="selecting">
         
-            <p>
+            <header>
                 <input type="checkbox" id="chkGoalkeeper" ng-model="goalkeeper">
                 <label for="chkGoalkeeper">Tem goleiro?</label>
-            </p>
+            </header>
             
             <ul>
                 <li ng-repeat="player in players | orderBy:['outsider','name']" ng-click="toggleActive(player)" ng-class="{active:player.checked}">
@@ -43,9 +45,9 @@
                 </li>
             </ul>
             
-            <p>
+            <footer>
                 <a href="#" ng-click="endSelection()">Encerrar seleção</a>
-            </p>
+            </footer>
         
         </div>
         
